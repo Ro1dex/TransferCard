@@ -2,12 +2,13 @@
 import data.DataHelper;
 import org.junit.jupiter.api.Test;
 import page.LoginPage;
+
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MoneyTransferTest {
     @Test
-    void shouldTransferMoneyBetweenOwnCards(){
+    void shouldTransferMoneyBetweenOwnCards() {
         open("http://localhost:9999");
         int value = 1000;
         var loginPage = new LoginPage();

@@ -14,29 +14,34 @@ public class DashboardPage {
     private final SelenideElement transferButton2 = $("#root > div > ul > li:nth-child(2) > div > button");
     private final SelenideElement refreshButton = $("[data-test-id=action-reload]");
 
-    public DashboardPage(){
+    public DashboardPage() {
         header.shouldBe(visible);
     }
-    public TransferPage TransferCard1(){
+
+    public TransferPage TransferCard1() {
         transferButton1.click();
         return new TransferPage();
     }
-    public TransferPage TransferCard2(){
+
+    public TransferPage TransferCard2() {
         transferButton2.click();
         return new TransferPage();
     }
-    public DashboardPage refreshButton(){
+
+    public DashboardPage refreshButton() {
         refreshButton.click();
         return new DashboardPage();
     }
 
     private final String balanceFinish = " р.";
     private final ElementsCollection cards = $$(".list__item div");
-   public String getFistIDCard(){
+
+    public String getFistIDCard() {
         val id = cards.first().getAttribute("data-test-id");
         return String.valueOf(getFistCardBalance());
     }
-    public String getSecondIDCard(){
+
+    public String getSecondIDCard() {
         val id = cards.get(1).getAttribute("data-test-id");
         return String.valueOf(getSecondCardBalance());
     }
@@ -46,6 +51,7 @@ public class DashboardPage {
 
         return extractBalance(text);
     }
+
     public int getSecondCardBalance() {
         val text = cards.get(1).text();
 
