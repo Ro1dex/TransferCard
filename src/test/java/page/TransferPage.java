@@ -5,10 +5,11 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class TransferPage {
-    private final SelenideElement transferCardButton = $("[data-test-id=action-transfer]");
-    private final SelenideElement cancelTransferCardButton = $("[data-test-id=action-transfer]");
+    private final SelenideElement transferCardButton = $$("[data-test-id=action-transfer]").first();
+    private final SelenideElement cancelTransferCardButton = $$("[data-test-id=action-transfer]").last();
     private final SelenideElement amountTransferCard = $("[data-test-id=amount] input");
     private final SelenideElement fromTransferCard = $("[data-test-id=from] input");
 
