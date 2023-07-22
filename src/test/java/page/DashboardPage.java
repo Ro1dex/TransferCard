@@ -9,22 +9,21 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DashboardPage {
-    private final SelenideElement header = $("[data-test-id=dashboard]");
-    private final SelenideElement transferButton1 = $("#root > div > ul > li:nth-child(1) > div > button");
-    private final SelenideElement transferButton2 = $("#root > div > ul > li:nth-child(2) > div > button");
+
+    private final ElementsCollection transferButton = $$("[data-test-id=action-deposit]");
     private final SelenideElement refreshButton = $("[data-test-id=action-reload]");
 
     public DashboardPage() {
-        header.shouldBe(visible);
+        $("[data-test-id=dashboard]").shouldBe(visible);
     }
 
     public TransferPage TransferCard1() {
-        transferButton1.click();
+        transferButton.get(0).click();
         return new TransferPage();
     }
 
     public TransferPage TransferCard2() {
-        transferButton2.click();
+        transferButton.get(1).click();
         return new TransferPage();
     }
 
@@ -36,15 +35,6 @@ public class DashboardPage {
     private final String balanceFinish = " р.";
     private final ElementsCollection cards = $$(".list__item div");
 
-    public String getFistIDCard() {
-        val id = cards.first().getAttribute("data-test-id");
-        return String.valueOf(getFistCardBalance());
-    }
-
-    public String getSecondIDCard() {
-        val id = cards.get(1).getAttribute("data-test-id");
-        return String.valueOf(getSecondCardBalance());
-    }
 
     public int getFistCardBalance() {
         val text = cards.first().text();
