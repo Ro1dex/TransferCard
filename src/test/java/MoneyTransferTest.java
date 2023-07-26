@@ -18,7 +18,7 @@ public class MoneyTransferTest {
         var dashboardPage = verificationPage.validVerify(verificationCode);
         var expectedFirstBalanceFirstCard = dashboardPage.getFistCardBalance() + value;
         var expectedFirstBalanceSecondCard = dashboardPage.getSecondCardBalance() - value;
-        var transferPageCardFirst = dashboardPage.TransferCard1();
+        var transferPageCardFirst = dashboardPage.transferCard1();
         transferPageCardFirst.validTransferCard(String.valueOf(value), DataHelper.getCardInfo2().getCard());
         var actualFirstBalanceFirstCard = dashboardPage.getFistCardBalance();
         var actualFirstBalanceSecondCard = dashboardPage.getSecondCardBalance();
@@ -26,7 +26,7 @@ public class MoneyTransferTest {
         assertEquals(expectedFirstBalanceSecondCard, actualFirstBalanceSecondCard);
         var expectedSecondBalanceSecondCard = dashboardPage.getSecondCardBalance() + value;
         var expectedSecondBalanceFirstCard = dashboardPage.getFistCardBalance() - value;
-        var transferPageCardSecond = dashboardPage.TransferCard2();
+        var transferPageCardSecond = dashboardPage.transferCard2();
         transferPageCardSecond.validTransferCard(String.valueOf(value), DataHelper.getCardInfo1().getCard());
         var actualSecondBalanceSecondCard = dashboardPage.getSecondCardBalance();
         var actualSecondBalanceFirstCard = dashboardPage.getFistCardBalance();

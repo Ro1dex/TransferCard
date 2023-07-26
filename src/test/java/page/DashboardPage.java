@@ -17,12 +17,12 @@ public class DashboardPage {
         $("[data-test-id=dashboard]").shouldBe(visible);
     }
 
-    public TransferPage TransferCard1() {
+    public TransferPage transferCard1() {
         transferButton.get(0).click();
         return new TransferPage();
     }
 
-    public TransferPage TransferCard2() {
+    public TransferPage transferCard2() {
         transferButton.get(1).click();
         return new TransferPage();
     }
